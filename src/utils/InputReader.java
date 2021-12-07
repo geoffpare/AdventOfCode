@@ -1,10 +1,12 @@
 package utils;
 
+import com.google.common.collect.Lists;
+
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.lang.reflect.Array;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class InputReader {
     // Expecting 1 Integer per line, no sanitization
@@ -36,4 +38,13 @@ public class InputReader {
 
         return strings;
     }
+
+    // Expecting 1 line of comma seperated integers
+    public List<Integer> loadCommaSeperatedIntegersFromFile(String fileName) throws FileNotFoundException {
+        String numString = loadStringsFromFile(fileName).get(0);
+
+        return Arrays.stream(numString.split(",")).map((s) -> Integer.parseInt(s)).collect(Collectors.toList());
+    }
+
+
 }
