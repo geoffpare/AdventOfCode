@@ -49,7 +49,7 @@ import java.util.Map;
  *
  * Following the Elf's instructions for the second column, what would your total score be if everything goes exactly according to your strategy guide?
  */
-public record RockPaperSissors() {
+public record RockPaperScissors() {
     private static Map<String, Integer> roundScore = new HashMap<String, Integer>() {{
         // You win, 6 points for win + what you threw
         put("A Y", 6 + 2);
@@ -87,7 +87,7 @@ public record RockPaperSissors() {
     }};
 
     public static void main(String[] args) throws FileNotFoundException {
-        RockPaperSissors rps = new RockPaperSissors();
+        RockPaperScissors rps = new RockPaperScissors();
         rps.doPart1();
         rps.doPart2();
     }
