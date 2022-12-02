@@ -61,7 +61,6 @@ import java.util.stream.Collectors;
  *
  */
 public class CalorieCounter {
-    private static InputReader inputReader = new InputReader();
 
     public static void main(String[] args) throws IOException {
         CalorieCounter counter = new CalorieCounter();
