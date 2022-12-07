@@ -38,6 +38,11 @@ public class InputReader {
         return strings;
     }
 
+    // Return just the first line
+    public String loadStringFromFile(String fileName) throws FileNotFoundException {
+        return loadStringsFromFile(fileName).get(0);
+    }
+
     // Expecting 1 line of comma seperated integers
     public List<Integer> loadCommaSeperatedIntegersFromFile(String fileName) throws FileNotFoundException {
         String numString = loadStringsFromFile(fileName).get(0);
