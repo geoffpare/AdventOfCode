@@ -50,5 +50,22 @@ public class InputReader {
         return Arrays.stream(numString.split(",")).map((s) -> Integer.parseInt(s)).collect(Collectors.toList());
     }
 
+    // Example below would result in a 2d array that's 2x2
+    // 12
+    // 23
+    public List<List<Integer>> readIntegerGridFromFile(String fileName) throws FileNotFoundException {
+        List<List<Integer>> grid = new ArrayList<>();
+        List<String> gridLines = loadStringsFromFile(fileName);
+
+        for (String line : gridLines) {
+            List<Integer> li = Lists.newArrayList();
+            for (String num : line.split("")) {
+                li.add(Integer.parseInt(num));
+            }
+            grid.add(li);
+        }
+
+        return grid;
+    }
 
 }
