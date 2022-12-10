@@ -52,7 +52,7 @@ import java.util.stream.IntStream;
  * NOTE: This person uses X as the vertical, I'm not sure why, but I'll follow along in case it matters for part 2...
  */
 public class VentMapper {
-    Map<Point, Integer> pointCounter = new HashMap<>();
+    Map<Position, Integer> pointCounter = new HashMap<>();
 
     /**
      * Since we're just counting points, I'm not going to bother with a sparse matrix, I'm just going to do a Map(Point) -> Count
@@ -103,7 +103,7 @@ public class VentMapper {
     }
 
     public void addPoint(Integer x, Integer y) {
-        Point point = new Point(x,y);
+        Position point = new Position(x,y);
         Integer count = pointCounter.getOrDefault(point, 0);
         pointCounter.put(point, count+1);
     }

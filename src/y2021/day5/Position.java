@@ -2,10 +2,10 @@ package y2021.day5;
 
 import java.util.Objects;
 
-public class Point {
+public class Position {
     Integer x, y;
 
-    public Point(Integer x, Integer y) {
+    public Position(Integer x, Integer y) {
         this.x = x;
         this.y = y;
     }
@@ -14,7 +14,7 @@ public class Point {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Point point = (Point) o;
+        Position point = (Position) o;
         return Objects.equals(x, point.x) && Objects.equals(y, point.y);
     }
 
