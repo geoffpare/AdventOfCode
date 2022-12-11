@@ -374,5 +374,5 @@ public class RopeTracker {
         System.out.println("Post move tail: " + knots.get(knots.size()-1));
         tailVisitedPositions.add(new Point(knots.get(knots.size()-1)));
     }
-    
+
 }
