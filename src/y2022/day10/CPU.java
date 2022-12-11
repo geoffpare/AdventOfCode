@@ -76,7 +76,7 @@ import java.util.List;
  * Render the image given by your program. What eight capital letters appear on your CRT?
  */
 public class CPU {
-    List<Integer> valueAfterCycle = Lists.newArrayList();
+    List<Integer> valueDuringCycle = Lists.newArrayList();
 
     public static void main(String[] args) throws FileNotFoundException {
         InputReader inputReader = new InputReader();
@@ -92,20 +92,20 @@ public class CPU {
 
     public CPU(List<String> instructions) {
         // X starts at 1, so after cycle 1, the value is 1
-        valueAfterCycle.add(1);
-        valueAfterCycle.add(1);
+        valueDuringCycle.add(1);
+        valueDuringCycle.add(1);
 
         int lastValue = 1;
 
         for (String instruction : instructions) {
             String command = instruction.split(" ")[0];
             if (command.equals("noop")) {
-                valueAfterCycle.add(lastValue);
+                valueDuringCycle.add(lastValue);
             } else if (command.equals("addx")) {
                 int amount = Integer.parseInt(instruction.split(" ")[1]);
-                valueAfterCycle.add(lastValue);
+                valueDuringCycle.add(lastValue);
                 lastValue += amount;
-                valueAfterCycle.add(lastValue);
+                valueDuringCycle.add(lastValue);
             }
         }
 
@@ -115,7 +115,7 @@ public class CPU {
     public void drawCRT() {
         for (int cycle=1; cycle<=240; cycle++) {
             int column = (cycle - 1) % 40;
-            int register = valueAfterCycle.get(cycle);
+            int register = valueDuringCycle.get(cycle);
 
             if (Math.abs(register-column) <= 1) {
                 System.out.print("#");
@@ -132,12 +132,12 @@ public class CPU {
     public Integer estimateSignalStrength() {
         // Building a new list here just as a debugging aid
         List<Integer> signalSamples = Lists.newArrayList();
-        signalSamples.add(valueAfterCycle.get(20)*20);
-        signalSamples.add(valueAfterCycle.get(60)*60);
-        signalSamples.add(valueAfterCycle.get(100)*100);
-        signalSamples.add(valueAfterCycle.get(140)*140);
-        signalSamples.add(valueAfterCycle.get(180)*180);
-        signalSamples.add(valueAfterCycle.get(220)*220);
+        signalSamples.add(valueDuringCycle.get(20)*20);
+        signalSamples.add(valueDuringCycle.get(60)*60);
+        signalSamples.add(valueDuringCycle.get(100)*100);
+        signalSamples.add(valueDuringCycle.get(140)*140);
+        signalSamples.add(valueDuringCycle.get(180)*180);
+        signalSamples.add(valueDuringCycle.get(220)*220);
 
         System.out.println("Samples: " + signalSamples);
 
