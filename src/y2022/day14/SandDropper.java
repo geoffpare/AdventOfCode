@@ -1,13 +1,11 @@
 package y2022.day14;
 
 import com.google.common.collect.Lists;
-import org.apache.commons.collections4.set.ListOrderedSet;
 import utils.InputReader;
 import utils.Point;
 
 import java.io.FileNotFoundException;
 import java.util.List;
-import java.util.stream.IntStream;
 
 /**
  * https://adventofcode.com/2022/day/14
